@@ -1,0 +1,61 @@
+<html>
+<head>
+  <script>
+  function action()
+  {
+    alert("hello");
+    alert(%{{t}}%);
+  document.getElementById("t").value={{t}};
+  document.getElementById("f").value={{f}};
+  }
+  </script>
+</head>
+<body onLoad="action()">
+
+<form action="http://localhost:5000/cal" method="post">
+  <table>
+    <tr>
+      <td>frequency</td>
+      <td><select name="freq" id="f">
+             <option value="d">daily</option>
+             <option value="m">monthly</option>
+          </select>
+     </td>
+    </tr>
+    <tr>
+      <td>technique</td>
+      <td><select name="tech" id="t">
+             <option value="b">base_clp</option>
+             <option value="y">base_yuan</option>
+             <option value="a">SMA</option>
+             <option value="e">SES</option>
+             <option value="e1">DES</option>
+             <option value="pslr">slr_peso</option>
+             <option value="yslr">slr_yuan</option>
+          </select>
+      </td>
+    </tr>
+    <br/><br/><br/>
+    <tr>
+      <td><input type="submit" value="calculate"></td>
+    </tr>
+    <br/><br/><br/>
+    <tr>
+      <td>{{freq}}</td>
+      <td>{{tech}}</td>
+    </tr>
+    <tr>
+      <td>OOS</td>
+      <td>{{oos}}</td>
+    </tr>
+    <tr>
+    <td>INS</td>
+    <td>{{ins}}</td>
+    </tr>
+    <tr>
+    <td>RMSE</td>
+    <td>{{rmse}}</td>
+    </tr>
+  </table>
+</body>
+</html>
